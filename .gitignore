@@ -1,0 +1,6 @@
+.build/
+.swiftpm/
+/LocalBundle/
+*.artifactbundle.zip
+.DS_Store
+Package.resolved
