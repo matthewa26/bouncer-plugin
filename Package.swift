@@ -4,10 +4,10 @@ import PackageDescription
 
 /// The Bouncer release this package's binary comes from. Bumped, with `bouncerChecksum`, after every
 /// Bouncer release; see README.md's "Releasing" section.
-let bouncerVersion = "v0.0.0"
+let bouncerVersion = "v1.2.0"
 
 /// The SHA-256 of that release's `bouncer.artifactbundle.zip`, as printed by the release workflow.
-let bouncerChecksum = "0000000000000000000000000000000000000000000000000000000000000000"
+let bouncerChecksum = "e9c9aff854e3bdd2667071d858de5be787a0d403791bbd64c257402e5450102d"
 
 /// Builds the binary target: the release asset, or a local bundle when `BOUNCER_PLUGIN_LOCAL_BUNDLE` is set.
 ///
