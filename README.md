@@ -2,9 +2,6 @@
 
 SwiftPM and Xcode plugins that run [Bouncer](https://github.com/matthewa26/bouncer) as part of your build.
 
-> **Not released yet.** The first release of this package will follow Bouncer 1.3.0, the first Bouncer release
-> that ships the prebuilt artifact bundle. Until then, `Package.swift` points at a placeholder and won't resolve.
-
 - **BouncerBuildPlugin** runs `bouncer check` on a target's sources whenever they change, and Bouncer's
   findings show up as compiler warnings and errors in `swift build` output and in Xcode's issue navigator.
 - **BouncerCommandPlugin** runs `bouncer review` on the whole package on demand: `swift package bouncer`,
@@ -23,7 +20,7 @@ Add the package, then the plugin to each target you want checked:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/matthewa26/bouncer-plugin", from: "1.3.0"),
+    .package(url: "https://github.com/matthewa26/bouncer-plugin", from: "1.2.0"),
 ],
 targets: [
     .target(
