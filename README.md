@@ -117,14 +117,18 @@ the variable exported (`open -a Xcode`) if you need it there.
 
 ## Releasing
 
-Each Bouncer release attaches `bouncer.artifactbundle.zip` and lists its SHA-256 in `SHA256SUMS`. Its release
-workflow ends by printing the two lines to change here (also in the run's summary). After a Bouncer release:
+Bouncer's release workflow does this automatically: after publishing a release, its `plugin` job sets
+`bouncerVersion` and `bouncerChecksum` in `Package.swift` to the new tag and its `bouncer.artifactbundle.zip`
+checksum, commits, and tags this repo with the same version without the `v` (for example `1.3.0`, so `from:`
+requirements work). It uses Bouncer's `HOMEBREW_TAP_TOKEN` secret, which needs Contents read and write here.
 
-1. In `Package.swift`, set `bouncerVersion` to the release tag and `bouncerChecksum` to the printed checksum.
-   To recompute it: download the zip and run `swift package compute-checksum bouncer.artifactbundle.zip`.
+To do it by hand, for example if that token has expired:
+
+1. In `Package.swift`, set `bouncerVersion` to the release tag and `bouncerChecksum` to the checksum the release
+   run prints in its summary. To recompute it: download the zip and run
+   `swift package compute-checksum bouncer.artifactbundle.zip`.
 2. Check it resolves: `swift package resolve` in a package that depends on this one by local path.
-3. Commit, then tag this repo with the same version as the Bouncer release (without the `v`, for example
-   `1.3.0`, so `from:` requirements work), and push the tag.
+3. Commit, then tag this repo with the release's version without the `v`, and push the tag.
 
 ## License
 
